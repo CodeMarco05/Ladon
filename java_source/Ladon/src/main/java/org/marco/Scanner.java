@@ -101,6 +101,21 @@ public class Scanner {
                     while (peek() != '\n' && !isAtEnd()) {
                         advance();
                     }
+                } else if (match('*')) {
+                    // Multi-line comment
+                    boolean commentClosed = false;
+
+                    while (!isAtEnd() && !commentClosed) {
+                        if (match('*') && peek() == '/') {
+                            advance(); // Move past the '/'
+                            commentClosed = true;
+                        } else {
+                            advance();
+                        }
+                    }
+                    if (!commentClosed) {
+                        Ladon.error(line, "Unterminated multi-line comment.");
+                    }
                 } else {
                     addToken(TokenType.SLASH);
                 }

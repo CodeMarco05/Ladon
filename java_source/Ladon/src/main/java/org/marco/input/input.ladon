@@ -1,5 +1,12 @@
 var i = "test";
 var j = "test2";
-//test
+
+/*test asdflkjalsdfjasdfsfd
+
+asdf
+as
+df
+*/
+
 print i;
 print j;
