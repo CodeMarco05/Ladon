@@ -1,0 +1,5 @@
+var i = "test";
+var j = "test2";
+//test
+print i;
+print j;
